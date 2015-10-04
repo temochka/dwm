@@ -6,7 +6,7 @@ static const char *fonts[] = {
     "VL Gothic:size=10.5",
     "WenQuanYi Micro Hei:size=10.5",
 };
-static const char dmenufont[] = "-*-terminus-medium-r-*-*-16-*-*-*-*-*-*-*";
+static const char dmenufont[] = "-*-terminus-medium-r-*-*-10-*-*-*-*-*-*-*";
 static const char normbordercolor[] = "#444444";
 static const char normbgcolor[]     = "#222222";
 static const char normfgcolor[]     = "#bbbbbb";
