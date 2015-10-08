@@ -8,11 +8,11 @@ static const char *fonts[] = {
 };
 static const char dmenufont[] = "-*-terminus-medium-r-*-*-10-*-*-*-*-*-*-*";
 static const char normbordercolor[] = "#444444";
-static const char normbgcolor[]     = "#222222";
-static const char normfgcolor[]     = "#bbbbbb";
+static const char normbgcolor[]     = "#ffde02";
+static const char normfgcolor[]     = "#333333";
 static const char selbordercolor[]  = "#005577";
-static const char selbgcolor[]      = "#005577";
-static const char selfgcolor[]      = "#eeeeee";
+static const char selbgcolor[]      = "#333333";
+static const char selfgcolor[]      = "#ffde02";
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const Bool showbar           = True;     /* False means no bar */
