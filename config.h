@@ -2,11 +2,12 @@
 
 /* appearance */
 static const char *fonts[] = {
+    "Fira Sans Light:size=10.5",
     "Sans:size=10.5",
     "VL Gothic:size=10.5",
     "WenQuanYi Micro Hei:size=10.5",
 };
-static const char dmenufont[] = "-*-terminus-medium-r-*-*-10-*-*-*-*-*-*-*";
+static const char dmenufont[] = "Fira Sans Light:size=10.5";
 static const char normbordercolor[] = "#444444";
 static const char normbgcolor[]     = "#ffde02";
 static const char normfgcolor[]     = "#333333";
@@ -38,9 +39,9 @@ static const Bool resizehints = False; /* True means respect size hints in tiled
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[]=",      tile },    /* first entry is default */
-	{ "><>",      NULL },    /* no layout function means floating behavior */
-	{ "[M]",      monocle },
+	{ "◫",      tile },    /* first entry is default */
+	{ "◰",      NULL },    /* no layout function means floating behavior */
+	{ "◘",      monocle },
 };
 
 /* key definitions */
@@ -56,8 +57,8 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
-static const char *termcmd[]  = { "st", NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, "-fn", dmenufont, NULL };
+static const char *termcmd[]  = { "st", "-e", "tmux", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -66,16 +67,16 @@ static Key keys[] = {
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
-	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
-	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
-	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
-	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
+	{ MODKEY|ShiftMask,             XK_equal,  incnmaster,     {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_minus,  incnmaster,     {.i = -1 } },
+	{ MODKEY,                       XK_minus,  setmfact,       {.f = -0.05} },
+	{ MODKEY,                       XK_equal,  setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
-	{ MODKEY,                       XK_w,      killclient,     {0} },
-	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
-	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
-	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
+	{ MODKEY|ShiftMask,             XK_w,      killclient,     {0} },
+	{ MODKEY|Mod1Mask,              XK_t,      setlayout,      {.v = &layouts[0]} },
+	{ MODKEY|Mod1Mask,              XK_f,      setlayout,      {.v = &layouts[1]} },
+	{ MODKEY|Mod1Mask,              XK_m,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
