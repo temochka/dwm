@@ -2,11 +2,12 @@
 
 /* appearance */
 static const char *fonts[] = {
+    "Fira Sans Light:size=10.5",
     "Sans:size=10.5",
     "VL Gothic:size=10.5",
     "WenQuanYi Micro Hei:size=10.5",
 };
-static const char dmenufont[] = "-*-terminus-medium-r-*-*-10-*-*-*-*-*-*-*";
+static const char dmenufont[] = "Fira Sans Light:size=10.5";
 static const char normbordercolor[] = "#444444";
 static const char normbgcolor[]     = "#222222";
 static const char normfgcolor[]     = "#bbbbbb";
@@ -56,7 +57,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, "-fn", dmenufont, NULL };
 static const char *termcmd[]  = { "st", "-e", "tmux", NULL };
 
 static Key keys[] = {
