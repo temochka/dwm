@@ -59,6 +59,7 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, "-fn", dmenufont, NULL };
 static const char *termcmd[]  = { "st", "-e", "tmux", NULL };
+static const char *killdwmcmd[]  = { "killall", "dwmdwmdwm", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -95,6 +96,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ Mod1Mask,                     XK_q,      quit,           {0} },
+    { Mod1Mask|ShiftMask,           XK_q,      spawn,          {.v = killdwmcmd } },
 };
 
 /* button definitions */
