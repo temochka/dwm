@@ -63,7 +63,7 @@ static const char *killdwmcmd[]  = { "killall", "dwmdwmdwm", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ Mod1Mask,                     XK_space,  spawn,          {.v = dmenucmd } },
+	{ Mod1Mask|ShiftMask,           XK_space,  spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
